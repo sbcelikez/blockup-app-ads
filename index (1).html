@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tradefleet Games</title>
+<meta name="description" content="Tradefleet Games builds small, sharp mobile and PC games.">
+<style>
+  :root{
+    --bg:#fbfaf8; --surface:#ffffff; --ink:#16130f; --ink-soft:#5c554c;
+    --line:#e6e1d9; --accent:#c8552b; --accent-ink:#ffffff;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#14120f; --surface:#1c1917; --ink:#f4f1ec; --ink-soft:#a39c92;
+      --line:#2e2a26; --accent:#e4703f; --accent-ink:#14120f;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#14120f; --surface:#1c1917; --ink:#f4f1ec; --ink-soft:#a39c92;
+    --line:#2e2a26; --accent:#e4703f; --accent-ink:#14120f;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:16px/1.65 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:0 16px}
+  header{padding:72px 0 40px}
+  .mark{
+    display:inline-flex; align-items:center; gap:10px;
+    font-weight:650; letter-spacing:-.01em; font-size:15px; color:var(--ink-soft);
+  }
+  .mark svg{display:block}
+  h1{
+    margin:28px 0 14px; font-size:clamp(34px,6vw,52px); line-height:1.08;
+    letter-spacing:-.03em; font-weight:700;
+  }
+  .lede{margin:0; max-width:52ch; color:var(--ink-soft); font-size:clamp(17px,2.4vw,19px)}
+  main{padding-bottom:24px}
+  h2{
+    margin:0 0 20px; font-size:13px; font-weight:650; letter-spacing:.09em;
+    text-transform:uppercase; color:var(--ink-soft);
+  }
+  section{padding:40px 0; border-top:1px solid var(--line)}
+  .card{
+    display:block; text-decoration:none; color:inherit;
+    background:var(--surface); border:1px solid var(--line); border-radius:14px;
+    padding:24px; transition:border-color .15s ease, transform .15s ease;
+  }
+  .card:hover{border-color:var(--accent); transform:translateY(-1px)}
+  .card h3{margin:0 0 6px; font-size:21px; letter-spacing:-.015em}
+  .card p{margin:0 0 14px; color:var(--ink-soft); font-size:15px}
+  .meta{
+    display:inline-block; font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--accent); font-weight:650;
+  }
+  .contact a{color:var(--ink); text-decoration-color:var(--line); text-underline-offset:3px}
+  .contact a:hover{text-decoration-color:var(--accent)}
+  footer{
+    padding:32px 0 56px; border-top:1px solid var(--line);
+    display:flex; flex-wrap:wrap; gap:8px 20px; align-items:baseline;
+    font-size:14px; color:var(--ink-soft);
+  }
+  footer a{color:var(--ink-soft); text-underline-offset:3px}
+  footer a:hover{color:var(--accent)}
+  .spacer{flex:1}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="mark">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+        <rect x="1" y="1" width="7" height="7" rx="1.5" fill="currentColor"/>
+        <rect x="10" y="1" width="7" height="7" rx="1.5" fill="currentColor" opacity=".45"/>
+        <rect x="1" y="10" width="7" height="7" rx="1.5" fill="currentColor" opacity=".45"/>
+        <rect x="10" y="10" width="7" height="7" rx="1.5" fill="currentColor"/>
+      </svg>
+      Tradefleet Games
+    </span>
+    <h1>Small games, built with care.</h1>
+    <p class="lede">An independent studio working on puzzle and simulation games for mobile and PC.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Released</h2>
+      <a class="card" href="https://play.google.com/store/apps/details?id=com.tradefleetgames.blockup9x9">
+        <h3>BlockUp: Crust</h3>
+        <p>A 9&times;9 block puzzle with a twist: empty cells turn to crust and can only be cleared by completing their 3&times;3 box. No timer, no rotation — just placement.</p>
+        <span class="meta">Google Play &rarr;</span>
+      </a>
+    </section>
+
+    <section>
+      <h2>In development</h2>
+      <div class="card" style="cursor:default">
+        <h3>First Layer</h3>
+        <p>A 3D print farm tycoon game. Build the farm, manage the queue, ship the orders. Coming to Steam.</p>
+        <span class="meta">Announced</span>
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2>Contact</h2>
+      <p style="margin:0">Support, press and business enquiries: <a href="mailto:info@tradefleet.co">info@tradefleet.co</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 Tradefleet LLC &middot; Cheyenne, WY, USA</span>
+    <span class="spacer"></span>
+    <a href="/privacy">Privacy Policy</a>
+  </footer>
+
+</div>
+</body>
+</html>
