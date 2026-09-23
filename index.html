@@ -4,60 +4,91 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tradefleet Games</title>
-<meta name="description" content="Tradefleet Games builds small, sharp mobile and PC games.">
+<meta name="description" content="Tradefleet Games is an independent studio making puzzle, strategy and simulation games, plus small Windows tools for sellers and players.">
+<link rel="canonical" href="https://tradefleet.co/">
+<meta property="og:title" content="Tradefleet Games">
+<meta property="og:description" content="Small games and useful tools, built with care.">
+<meta property="og:url" content="https://tradefleet.co/">
+<meta property="og:type" content="website">
 <style>
   :root{
     --bg:#fbfaf8; --surface:#ffffff; --ink:#16130f; --ink-soft:#5c554c;
-    --line:#e6e1d9; --accent:#c8552b; --accent-ink:#ffffff;
+    --line:#e6e1d9; --accent:#c8552b; --accent-ink:#ffffff; --chip:#f3efe9;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
       --bg:#14120f; --surface:#1c1917; --ink:#f4f1ec; --ink-soft:#a39c92;
-      --line:#2e2a26; --accent:#e4703f; --accent-ink:#14120f;
+      --line:#2e2a26; --accent:#e4703f; --accent-ink:#14120f; --chip:#262320;
     }
   }
   :root[data-theme="dark"]{
     --bg:#14120f; --surface:#1c1917; --ink:#f4f1ec; --ink-soft:#a39c92;
-    --line:#2e2a26; --accent:#e4703f; --accent-ink:#14120f;
+    --line:#2e2a26; --accent:#e4703f; --accent-ink:#14120f; --chip:#262320;
   }
   *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
   body{
     margin:0; background:var(--bg); color:var(--ink);
     font:16px/1.65 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:760px; margin:0 auto; padding:0 16px}
-  header{padding:72px 0 40px}
+  .wrap{max-width:960px; margin:0 auto; padding:0 16px}
+
+  .top{display:flex; align-items:center; gap:16px; padding:24px 0}
   .mark{
-    display:inline-flex; align-items:center; gap:10px;
-    font-weight:650; letter-spacing:-.01em; font-size:15px; color:var(--ink-soft);
+    display:inline-flex; align-items:center; gap:10px; text-decoration:none;
+    font-weight:650; letter-spacing:-.01em; font-size:15px; color:var(--ink);
   }
   .mark svg{display:block}
+  nav{margin-left:auto; display:flex; gap:4px 20px; flex-wrap:wrap; font-size:14px}
+  nav a{color:var(--ink-soft); text-decoration:none}
+  nav a:hover{color:var(--accent)}
+
+  header{padding:56px 0 48px}
   h1{
-    margin:28px 0 14px; font-size:clamp(34px,6vw,52px); line-height:1.08;
-    letter-spacing:-.03em; font-weight:700;
+    margin:0 0 16px; font-size:clamp(34px,6vw,56px); line-height:1.06;
+    letter-spacing:-.03em; font-weight:700; max-width:16ch;
   }
-  .lede{margin:0; max-width:52ch; color:var(--ink-soft); font-size:clamp(17px,2.4vw,19px)}
-  main{padding-bottom:24px}
-  h2{
-    margin:0 0 20px; font-size:13px; font-weight:650; letter-spacing:.09em;
+  .lede{margin:0; max-width:56ch; color:var(--ink-soft); font-size:clamp(17px,2.4vw,19px)}
+  .facts{display:flex; flex-wrap:wrap; gap:8px; margin:28px 0 0; padding:0; list-style:none}
+  .facts li{font-size:13px; color:var(--ink-soft); background:var(--chip); border-radius:999px; padding:5px 12px}
+
+  .area{padding:56px 0 8px; border-top:1px solid var(--line)}
+  .area-head{margin:0 0 8px}
+  .area-head h2{margin:0 0 6px; font-size:clamp(26px,4vw,32px); letter-spacing:-.025em; line-height:1.15}
+  .area-head p{margin:0; color:var(--ink-soft); max-width:60ch}
+  h3.group{
+    margin:36px 0 14px; font-size:12px; font-weight:650; letter-spacing:.09em;
     text-transform:uppercase; color:var(--ink-soft);
   }
-  section{padding:40px 0; border-top:1px solid var(--line)}
+
+  .grid{display:grid; gap:16px; grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
   .card{
-    display:block; text-decoration:none; color:inherit;
+    display:flex; flex-direction:column; text-decoration:none; color:inherit;
     background:var(--surface); border:1px solid var(--line); border-radius:14px;
-    padding:24px; transition:border-color .15s ease, transform .15s ease;
+    padding:22px 22px 20px; transition:border-color .15s ease, transform .15s ease;
   }
-  .card:hover{border-color:var(--accent); transform:translateY(-1px)}
-  .card h3{margin:0 0 6px; font-size:21px; letter-spacing:-.015em}
-  .card p{margin:0 0 14px; color:var(--ink-soft); font-size:15px}
+  a.card:hover{border-color:var(--accent); transform:translateY(-1px)}
+  .card.wide{grid-column:1/-1}
+  .tags{display:flex; flex-wrap:wrap; gap:6px; margin:0 0 14px}
+  .tag{font-size:11.5px; letter-spacing:.03em; color:var(--ink-soft); background:var(--chip); border-radius:6px; padding:2px 8px}
+  .tag.live{color:var(--accent-ink); background:var(--accent)}
+  .card h4{margin:0 0 8px; font-size:21px; letter-spacing:-.015em; line-height:1.25}
+  .card p{margin:0 0 16px; color:var(--ink-soft); font-size:15px}
+  .card ul{margin:-6px 0 16px; padding-left:18px; color:var(--ink-soft); font-size:14.5px}
+  .card ul li{margin:2px 0}
   .meta{
-    display:inline-block; font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+    margin-top:auto; font-size:12px; letter-spacing:.06em; text-transform:uppercase;
     color:var(--accent); font-weight:650;
   }
+  .meta.quiet{color:var(--ink-soft)}
+
+  .contact{padding:56px 0; border-top:1px solid var(--line); margin-top:48px}
+  .contact h2{margin:0 0 10px; font-size:clamp(26px,4vw,32px); letter-spacing:-.025em}
+  .contact p{margin:0; color:var(--ink-soft); max-width:60ch}
   .contact a{color:var(--ink); text-decoration-color:var(--line); text-underline-offset:3px}
   .contact a:hover{text-decoration-color:var(--accent)}
+
   footer{
     padding:32px 0 56px; border-top:1px solid var(--line);
     display:flex; flex-wrap:wrap; gap:8px 20px; align-items:baseline;
@@ -66,13 +97,14 @@
   footer a{color:var(--ink-soft); text-underline-offset:3px}
   footer a:hover{color:var(--accent)}
   .spacer{flex:1}
+  @media (max-width:560px){ .top{flex-wrap:wrap} nav{margin-left:0; width:100%} header{padding-top:32px} }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <header>
-    <span class="mark">
+  <div class="top">
+    <a class="mark" href="/">
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
         <rect x="1" y="1" width="7" height="7" rx="1.5" fill="currentColor"/>
         <rect x="10" y="1" width="7" height="7" rx="1.5" fill="currentColor" opacity=".45"/>
@@ -80,33 +112,119 @@
         <rect x="10" y="10" width="7" height="7" rx="1.5" fill="currentColor"/>
       </svg>
       Tradefleet Games
-    </span>
-    <h1>Small games, built with care.</h1>
-    <p class="lede">An independent studio working on puzzle and simulation games for mobile and PC.</p>
+    </a>
+    <nav aria-label="Sections">
+      <a href="#games">Games</a>
+      <a href="#apps">Apps</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+
+  <header>
+    <h1>Small games and useful tools, built with care.</h1>
+    <p class="lede">An independent studio making puzzle, strategy and simulation games for mobile and PC &mdash; and the Windows tools we built for our own work, polished enough to share.</p>
+    <ul class="facts">
+      <li>1 game released</li>
+      <li>3 games in development</li>
+      <li>2 apps available</li>
+    </ul>
   </header>
 
   <main>
-    <section>
-      <h2>Released</h2>
-      <a class="card" href="https://play.google.com/store/apps/details?id=com.tradefleetgames.blockup9x9">
-        <h3>BlockUp: Crust</h3>
-        <p>A 9&times;9 block puzzle with a twist: empty cells turn to crust and can only be cleared by completing their 3&times;3 box. No timer, no rotation — just placement.</p>
-        <span class="meta">Google Play &rarr;</span>
-      </a>
-    </section>
+    <section class="area" id="games">
+      <div class="area-head">
+        <h2>Games</h2>
+        <p>Focused games with one clear idea each, made to be replayed.</p>
+      </div>
 
-    <section>
-      <h2>In development</h2>
-      <div class="card" style="cursor:default">
-        <h3>First Layer</h3>
-        <p>A 3D print farm tycoon game. Build the farm, manage the queue, ship the orders. Coming to Steam.</p>
-        <span class="meta">Announced</span>
+      <h3 class="group">Released</h3>
+      <div class="grid">
+        <a class="card wide" href="https://play.google.com/store/apps/details?id=com.tradefleetgames.blockup9x9">
+          <div class="tags"><span class="tag live">Out now</span><span class="tag">Android</span><span class="tag">Puzzle</span></div>
+          <h4>BlockUp: Crust</h4>
+          <p>A 9&times;9 block puzzle with a twist: empty cells turn to crust and can only be cleared by completing their 3&times;3 box. No timer, no rotation &mdash; just placement.</p>
+          <span class="meta">Get it on Google Play &rarr;</span>
+        </a>
+      </div>
+
+      <h3 class="group">In development</h3>
+      <div class="grid">
+        <div class="card">
+          <div class="tags"><span class="tag">PC &middot; Steam</span><span class="tag">Tycoon</span></div>
+          <h4>First Layer</h4>
+          <p>A 3D print farm tycoon. Start with one printer in a cramped room and grow into an automated production floor.</p>
+          <ul>
+            <li>Prints fail &mdash; spaghetti, warping, clogs &mdash; and every failure is a story</li>
+            <li>Floor space, power and airflow are the real constraints</li>
+            <li>Made by people who actually run printers</li>
+          </ul>
+          <span class="meta quiet">Coming to Steam</span>
+        </div>
+        <div class="card">
+          <div class="tags"><span class="tag">PC</span><span class="tag">Tactical RPG</span></div>
+          <h4>Remnants of the Ancient Rome</h4>
+          <p>An isometric, hex-based tactical RPG set in 410 AD, as the Visigoths close in on Rome. Lead a small band through the city&rsquo;s last days.</p>
+          <ul>
+            <li>Turn-based combat on hex maps</li>
+            <li>Class-based heroes with their own skills</li>
+            <li>A campaign rooted in real history</li>
+          </ul>
+          <span class="meta quiet">In development</span>
+        </div>
+        <div class="card">
+          <div class="tags"><span class="tag">PC</span><span class="tag">Arena</span></div>
+          <h4>Rift Arena</h4>
+          <p>Our arena game. More details soon.</p>
+          <span class="meta quiet">In development</span>
+        </div>
       </div>
     </section>
 
-    <section class="contact">
+    <section class="area" id="apps">
+      <div class="area-head">
+        <h2>Apps</h2>
+        <p>Tools we built to take the repetitive work out of our own shops and channels.</p>
+      </div>
+
+      <h3 class="group">Available</h3>
+      <div class="grid">
+        <a class="card" href="https://automockupstudio.com/">
+          <div class="tags"><span class="tag live">Available</span><span class="tag">Windows</span><span class="tag">For sellers</span></div>
+          <h4>Auto Mockup Studio</h4>
+          <p>A batch mockup generator for Photoshop. Give it your artwork and your mockup PSDs; it fills every template and exports finished images sized for Etsy, Pinterest, Instagram and print-on-demand in one run.</p>
+          <ul>
+            <li>Drives your own copy of Photoshop &mdash; no manual work</li>
+            <li>One folder per platform, already the right size</li>
+            <li>One-time purchase, no subscription</li>
+          </ul>
+          <span class="meta">automockupstudio.com &rarr;</span>
+        </a>
+        <a class="card" href="https://gamingclipperai.com/">
+          <div class="tags"><span class="tag live">Available</span><span class="tag">Windows</span><span class="tag">For players</span></div>
+          <h4>GamingClipperAI</h4>
+          <p>Turns long gameplay recordings into ready-to-post vertical clips. It finds the most action-packed moments on its own and exports them for YouTube Shorts, TikTok and Reels.</p>
+          <ul>
+            <li>Built-in analysis for World of Warcraft, CS2 and Overwatch</li>
+            <li>Runs fully on your PC &mdash; no uploads, no subscriptions</li>
+          </ul>
+          <span class="meta">gamingclipperai.com &rarr;</span>
+        </a>
+      </div>
+
+      <h3 class="group">In development</h3>
+      <div class="grid">
+        <a class="card wide" href="https://automockupstudio.com/pod-auto-uploader">
+          <div class="tags"><span class="tag">Windows</span><span class="tag">For sellers</span></div>
+          <h4>PODAutoUploader</h4>
+          <p>The companion to Auto Mockup Studio. Point it at a folder of finished designs and it creates the Printify products for you &mdash; blank, placement, variants and pricing applied across the whole batch, left as drafts for your review.</p>
+          <span class="meta">Follow progress &rarr;</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
       <h2>Contact</h2>
-      <p style="margin:0">Support, press and business enquiries: <a href="mailto:info@tradefleet.co">info@tradefleet.co</a></p>
+      <p>Support, press and business enquiries: <a href="mailto:info@tradefleet.co">info@tradefleet.co</a></p>
     </section>
   </main>
 
